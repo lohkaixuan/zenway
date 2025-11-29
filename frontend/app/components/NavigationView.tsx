@@ -31,19 +31,16 @@ const breathNudges = [
     id: 1,
     icon: "🌿",
     text: "Passing a greener segment, try a deep breath in 4s, out 4s.",
-    textZh: "路过绿化区，试试 4 秒吸气、4 秒呼气～",
   },
   {
     id: 2,
     icon: "🧘",
     text: "Relax your shoulders and unclench your jaw.",
-    textZh: "放松肩膀，下巴不要用力～",
   },
   {
     id: 3,
     icon: "🚶",
     text: "Notice your steps: right, left, right, left.",
-    textZh: "感受脚步节奏：右脚、左脚、右脚、左脚～",
   },
 ];
 
@@ -135,7 +132,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
   const formatSegmentLabel = () => {
     if (!currentSegment) return "";
     if (isLastSegment && currentSegment.isLastMile) {
-      return "Last mile walk / 最后一段步行";
+      return "Last mile walk to destination";
     }
     return `${currentSegment.startPoint} → ${currentSegment.endPoint}`;
   };
@@ -168,7 +165,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
               </button>
             )}
             <div>
-              <div className="text-xs text-slate-500">Remaining · 剩余</div>
+              <div className="text-xs text-slate-500">Remaining </div>
               <div className="flex items-baseline gap-2">
                 <div className="text-3xl font-semibold">
                   {remainingMinutes} min
@@ -180,7 +177,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
               <div className="mt-1 flex items-center gap-2 text-xs text-slate-500">
                 <Clock className="w-3 h-3" />
                 <span>
-                  ETA {formatTime(eta)} · 预计到达 {formatTime(eta)}
+                  ETA {formatTime(eta)} 
                 </span>
               </div>
             </div>
@@ -192,7 +189,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
               <span>{isLastSegment ? "Walk segment" : "MRT segment"}</span>
             </div>
             <div className="text-[11px] text-slate-500">
-              Next: {isLastSegment ? "—" : "Walk / 下一步：Walk"}
+              Next: {isLastSegment ? "—" : "Walk"}
             </div>
           </div>
         </div>
@@ -203,7 +200,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
             <div className="mt-1 text-lg">〰️</div>
             <div>
               <p className="text-sm">
-                {nudge.text} / {nudge.textZh}
+                {nudge.text} 
               </p>
               <p className="mt-1 text-[11px] text-slate-500">
                 Segment: {formatSegmentLabel()}
@@ -228,7 +225,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
           style={{ pointerEvents: 'auto' }}
         >
           <div className="flex items-center justify-between text-xs text-slate-500 px-1">
-            <span>Live route map · 实时路线地图</span>
+            <span>Live route map </span>
             <span>
               {remainingMinutes} min · {remainingDistance.toFixed(2)} km
             </span>
@@ -311,7 +308,7 @@ export const NavigationView: React.FC<NavigationViewProps> = ({
           </div>
 
           <div className="mt-3 text-center text-[11px] text-slate-400">
-            Tap an option to adjust your route / 如需调整路线，可选择上方选项
+            Tap an option to adjust your route 
           </div>
         </div>
       </footer>
